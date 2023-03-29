@@ -7,6 +7,7 @@ pipeline {
         stage("Build") {
             steps {
                 sh "dotnet build"
+                sh "docker compose build"
             }
         }
         stage("Deliver") {
@@ -19,7 +20,7 @@ pipeline {
         }
         stage("Deploy") {
             steps {
-                sh "docker-compose up -d"
+                sh "docker compose up -d"
             }
         }
     }
