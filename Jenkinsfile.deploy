@@ -1,16 +1,10 @@
 pipeline {
     agent any
-    triggers {
-        pollSCM("* * * * *")
-    }
     parameters {
-        string defaultValue: "${BUILD_NUMBER}", name: 'DEPLOY_NUMBER', trim: true
+        string defaultValue: "", name: 'DEPLOY_NUMBER', trim: true
     }
     stages {
         stage("Deploy") {
-            environment {
-                BUILD_NUMBER = "${DEPLOY_NUMBER}"
-            }
             steps {
                 sh "docker compose down"
                 sh "docker compose up -d"
