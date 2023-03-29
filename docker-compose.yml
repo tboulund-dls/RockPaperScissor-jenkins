@@ -22,15 +22,3 @@ services:
     environment:
       - RABBITMQ_DEFAULT_USER=application
       - RABBITMQ_DEFAULT_PASS=pepsi
-  
-  jenkins:
-    build:
-      context: .
-      dockerfile: Jenkins/Dockerfile
-    ports:
-      - 8080:8080
-    volumes:
-      - jenkins_home:/var/jenkins_home
-  
-volumes:
-    jenkins_home:

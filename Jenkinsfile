@@ -12,8 +12,10 @@ pipeline {
         // stage("Deliver") {
             
         // }
-        // stage("Deploy") {
-
-        // }
+        stage("Deploy") {
+            steps {
+                sh "docker compose up -d"
+            }
+        }
     }
 }
