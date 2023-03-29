@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage("Deploy") {
             environment {
-                BUILD_NUMBER = DEPLOY_NUMBER
+                BUILD_NUMBER = "${DEPLOY_NUMBER}"
             }
             steps {
                 sh "docker compose up -d"
