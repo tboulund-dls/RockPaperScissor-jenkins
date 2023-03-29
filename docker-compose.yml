@@ -22,3 +22,33 @@ services:
     environment:
       - RABBITMQ_DEFAULT_USER=application
       - RABBITMQ_DEFAULT_PASS=pepsi
+
+  game-master:
+    build:
+      context: .
+      dockerfile: GameMasterService/Dockerfile
+    image: boulundeasv/rps-game-master
+    depends_on:
+      - seq
+      - zipkin
+      - rmq
+
+  copy-player:
+    build:
+      context: .
+      dockerfile: CopyPlayerService/Dockerfile
+    image: boulundeasv/rps-copy-player
+    depends_on:
+      - seq
+      - zipkin
+      - rmq
+
+  random-player:
+    build:
+      context: .
+      dockerfile: RandomPlayerService/Dockerfile
+    image: boulundeasv/rps-random-player
+    depends_on:
+      - seq
+      - zipkin
+      - rmq
