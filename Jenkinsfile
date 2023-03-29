@@ -11,7 +11,7 @@ pipeline {
         }
         stage("Deliver") {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'COMPOSER_REPO_MAGENTO', passwordVariable: 'DH_PASSWORD', usernameVariable: 'DH_USERNAME')]) {
+                withCredentials([usernamePassword(credentialsId: 'DockerHub', passwordVariable: 'DH_PASSWORD', usernameVariable: 'DH_USERNAME')]) {
                     sh "docker login -u ${DH_USERNAME} -p ${DH_PASSWORD}"
                     sh "docker push"
                 }
