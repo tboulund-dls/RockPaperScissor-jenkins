@@ -9,6 +9,8 @@ public class Program
 
     public static async Task Main()
     {
+        Console.WriteLine("Hello from version 8");
+
         var connectionEstablished = false;
 
         Thread.Sleep(5000); // Let's make sure the player services are ready before we start
