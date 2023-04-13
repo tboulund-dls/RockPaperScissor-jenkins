@@ -6,6 +6,7 @@ pipeline {
     stages {
         stage("Rollback") {
             steps {
+                sh "docker compose stop"
                 sh "docker compose rm"
                 sh "docker compose up -d"
             }
