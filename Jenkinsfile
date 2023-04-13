@@ -23,7 +23,7 @@ pipeline {
         }
         stage("C. Dep") {
             steps {
-                build job: "RockPaperScissor-Rollback", parameters: [[$class: "StringParamterValue", name: "DEPLOY_NUMBER", value: "${BUILD_NUMBER}"]]
+                build job: "RockPaperScissor-Rollback", parameters: [[$class: "StringParameterValue", name: "DEPLOY_NUMBER", value: "${BUILD_NUMBER}"]]
             }
         }
     }
