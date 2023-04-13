@@ -23,8 +23,7 @@ pipeline {
         }
         stage("C. Dep") {
             steps {
-                sh "docker compose rm"
-                sh "docker compose up -d"
+                build job: "RockPaperScissor-Rollback", parameters: [[$class: "StringParamterValue", name: "DEPLOY_NUMBER", value: "${BUILD_NUMBER}"]]
             }
         }
     }
