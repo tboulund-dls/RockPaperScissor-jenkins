@@ -27,6 +27,7 @@ services:
     build:
       context: .
       dockerfile: GameMasterService/Dockerfile
+    image: boulundeasv/rps-game-master
     depends_on:
       - seq
       - zipkin
@@ -36,6 +37,7 @@ services:
     build:
       context: .
       dockerfile: CopyPlayerService/Dockerfile
+    image: boulundeasv/rps-copy-player
     depends_on:
       - seq
       - zipkin
@@ -45,6 +47,7 @@ services:
     build:
       context: .
       dockerfile: RandomPlayerService/Dockerfile
+    image: boulundeasv/rps-random-player
     depends_on:
       - seq
       - zipkin
